@@ -1,0 +1,492 @@
+CWE,Folder,func
+cwe-89,codeql-eg-SqlInjection-a,"def unsubscribe():
+	email = request.args.get('email')
+	db = MySQLdb.connect(host='localhost', user='root', passwd='mysql', db='cwe')
+	cur = db.cursor()
+	cur.execute(""SELECT * FROM users WHERE email=%s"",(email))
+	if cur.fetchone() != None:
+		cur.execute(""DELETE FROM users WHERE email=%s"",(email))
+		db.commit()
+		cur.close()
+		db.close()
+		return(""{0} has been successfully removed from the database!"".format(email))
+	else:
+		cur.close()
+		db.close()
+		return(""{0} is not in the database!"".format(email))
+"
+cwe-89,my-eg-2,"def insert_user_message_in_db(username, message):
+    db = get_db_connection()
+    cursor = db.cursor()
+    sql = ""INSERT INTO messages (username, message) VALUES ('%s', '%s')"" % (username, message)
+    try:
+        # Execute the SQL command
+        cursor.execute(sql)
+        # Commit your changes in the database
+        db.commit()
+    except:
+        # Rollback in case there is any error
+        db.rollback()
+
+    # disconnect from server
+    db.close()
+
+
+@app.route('/')
+"
+cwe-89,my-eg-1,"def buy_stock():
+    stock_name = request.form['stock_name']
+    stock_quantity = request.form['stock_quantity']
+    username = session['username']
+
+    #insert the buy order in the database
+    db = MySQLdb.connect(host=""localhost"", user=""root"", passwd=""root"", db=""db"")
+    cur = db.cursor()
+    cur.execute(""""""INSERT INTO orders (username, stock_name, stock_quantity) VALUES (%s, %s, %s)"""""", (username, stock_name, stock_quantity))
+    db.commit()
+    db.close()
+
+    #call the buy function to pass stock name
+    buy_function(stock_name)
+
+    return redirect('/')
+"
+cwe-20,codeql-eg-IncompleteHostnameRegExp,"rv = re.compile(r'.*example\.com')
+
+@app.route('/')
+"
+cwe-20,codeql-eg-IncompleteUrlSubstringSanitization,"def redirect_request(url):
+	parsed = urlparse(url)
+	if parsed.netloc == 'example.com':
+		return redirect(url, code=302)
+	else:
+		return '', 404
+"
+cwe-20,my-eg-1,"    sale_value = get_market_price(symbol) * quantity;
+    return sale_value;
+}
+"
+cwe-125,mitre-eg-1,"    if (index < 0 || index >= size) {
+        return -1;
+    }
+    return array[index];
+}
+"
+cwe-125,my-1,"    if (i > 0 && i <= 3) {
+        return id_sequence[i - 1];
+    } else {
+        return -1;
+    }
+}
+"
+cwe-125,my-2,"    if (index < 0 || index >= IDS_ARRAY_SIZE) {
+        return -1;
+    }
+    return ids[index];
+}
+"
+cwe-732,codeql-eg-WeakFilePermissions,"os.chmod(super_secret_filename, 0o400)
+"
+cwe-732,codeql-eg-DoNotCreateWorldWriteable-b,"    int fd = open(important_config, O_RDWR | O_CREAT, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    if (fd == -1) {
+        fprintf(stderr, ""Could not open important_config file\n"");
+        exit(EXIT_FAILURE);
+    }
+    write(fd, important_config, strlen(important_config));
+    close(fd);
+"
+cwe-732,codeql-eg-DoNotCreateWorldWriteable-a,"    int fd = open(important_config, O_CREAT|O_TRUNC|O_WRONLY, S_IRUSR|S_IWUSR);
+    if(fd == -1) {
+        fprintf(stderr, ""could not open %s\n"", important_config);
+        return 1;
+    }
+    size_t written = write(fd, important_config, strlen(important_config) + 1);
+    if(written != strlen(important_config) + 1) {
+        //close the file
+        close(fd);
+        fprintf(stderr, ""could not write to file %s\n"", important_config);
+        return 1;
+    }
+    close(fd);
+"
+cwe-200,mitre-eg-1,"def login():
+    username = request.form['username']
+    password = request.form['password']
+    db = MySQLdb.connect(host=""localhost"", user=""root"", passwd=""root"", db=""db"")
+    cursor = db.cursor()
+    sql = ""SELECT * FROM users WHERE username = '%s' AND password = '%s'"" % (username, password)
+    try:
+        cursor.execute(sql)
+        results = cursor.fetchall()
+        for row in results:
+            id = row[0]
+        # log the user in
+        session['id'] = id
+        session['Role'] = row[1]
+        return redirect('/dashboard')
+    except:
+        return redirect('/login')
+
+@app.route('/dashboard', methods = ['GET'])
+"
+cwe-200,mitre-eg-2,"        db = MySQLdb.connect(host=""localhost"",
+                     user=""cwe"",
+                     passwd=""password"",
+                     db=""cwe"")
+        cursor = db.cursor()
+        cursor.execute(""SELECT password FROM registered_users WHERE username='%s'"",(username))
+        data = cursor.fetchall()
+        db.close()
+    except Exception as e:
+        print(e)
+        return redirect('/internal_server_error')
+    if (len(data) == 0):
+        return redirect('/cant_login')
+    else:
+        h = hashlib.sha1(password.encode('utf-8')).hexdigest()
+        if (data[0][0] == h):
+            return redirect('/success')
+        else:
+            return redirect('/cant_login')
+"
+cwe-200,mitre-eg-6,"def info():
+    username = session['username']
+    email = session['email']
+    ssn = session['ssn']
+    return return_info_page(username, email, ssn)
+"
+cwe-190,codeql-eg-ArithmeticUncontrolled,"    int a = rand() % 1000 + 1000;
+    //generate a random integer larger than 1000
+    int b = rand() % 1000 + 1000;
+"
+cwe-190,codeql-eg-ArithmeticTainted,"    int result = value + 1000;
+    printf(""%d\n"", result);
+    return 0;
+}
+"
+cwe-190,mitre-eg-4,"    int firstQuarter = getMonthlySales(1) + getMonthlySales(2) + getMonthlySales(3);
+    
+    //sum the number of sales for the second quarter
+    int secondQuarter = getMonthlySales(4) + getMonthlySales(5) + getMonthlySales(6);
+    
+    //sum the number of sales for the third quarter
+    int thirdQuarter = getMonthlySales(7) + getMonthlySales(8) + getMonthlySales(9);
+    
+    //sum the number of sales for the fourth quarter
+    int fourthQuarter = getMonthlySales(10) + getMonthlySales(11) + getMonthlySales(12);
+    
+    printf(""First quarter: %i\n"", firstQuarter);
+    printf(""Second quarter: %i\n"", secondQuarter);
+    printf(""Third quarter: %i\n"", thirdQuarter);
+    printf(""Fourth quarter: %i\n"", fourthQuarter);
+    
+    return 0;
+"
+cwe-476,codeql-eg-MissingNullTest-b,"    p->status = 0;
+"
+cwe-476,codeql-eg-MissingNullTest-a,"    person *p = malloc(sizeof(person));
+    p->status = 0;
+"
+cwe-476,codeql-eg-MissingNullTest-c,"    fgets(buf, 1024, stdin);
+"
+cwe-22,codeql-eg-TarSlip,"with tarfile.open(""archive.zip"") as tar:
+        tar.extractall(""/tmp/unpack"")
+"
+cwe-22,codeql-eg-C-TaintedPath,"    memcpy(fileNameBuffer, restrictedSafeDirectory, strlen(restrictedSafeDirectory));
+    memcpy(fileNameBuffer + strlen(restrictedSafeDirectory), requestedFileName, requestedFileNameLen);
+"
+cwe-22,codeql-eg-Python-TaintedPath,"def img():
+    name = request.args.get('name')
+    return open('images/'+name, 'rb').read()
+"
+cwe-434,my-eg-2,"def upload_image():
+    img_file = request.files['img']
+    img_name = img_file.filename
+    img_data = img_file.read()
+    img_file.close()
+    db = MySQLdb.connect(host=os.environ['MYSQL_HOSTNAME'], user=os.environ['MYSQL_USERNAME'], passwd=os.environ['MYSQL_PASSWORD'], db=os.environ['MYSQL_DB_NAME'])
+    cur = db.cursor()
+    cur.execute(""CREATE TABLE IF NOT EXISTS cwe_434_images ( image_name varchar(100), image_data MEDIUMBLOB, PRIMARY KEY (image_name))"")
+    cur.execute(""INSERT INTO cwe_434_images (image_name, image_data) VALUES (%s, %s)"", (img_name, base64.b64encode(img_data)))
+    db.commit()
+    db.close()
+    return redirect(""/"", code=302)
+"
+cwe-434,my-eg-3,"def upload_file():
+    f = request.files['f']
+    if file_is_safe_type(f):
+        f.save(os.path.join('./uploads', f.filename))
+        return 'File uploaded successfully'
+    else:
+        return 'File not correctly uploaded'
+"
+cwe-434,my-eg-1,"def upload_pdf():
+    p = request.files['pdf']
+    p.save('./uploads/' + p.filename)
+"
+cwe-79,codeql-eg-ExternalAPISinkExample,"  sprintf(outputbuf, PAGE_HEAD ""Hello, %s"" PAGE_TAIL, escape_html(username));
+  fprintf(response, ""%s"", outputbuf);
+}
+"
+cwe-79,codeql-eq-ReflectedXss,"def hello(username=None):
+    return render_template(""hello.html"", name=username)
+"
+cwe-79,codeql-eg-Jinja2WithoutEscaping,"env = Environment(
+    loader=loader,
+    autoescape=select_autoescape(['html', 'xml']),
+    trim_blocks=True,
+    lstrip_blocks=True,
+)
+"
+cwe-306,my-eg-2,"def admin_page():
+    is_admin = (session['username'] == 'admin')
+    if not is_admin:
+        abort(403)
+    return '''<html>
+    Hello, %s! <a href='./'>Home</a>
+    </html>''' % g.username
+"
+cwe-306,my-eg-3,"def change_email():
+    old_email = request.form['old_email']
+    new_email = request.form['new_email']
+    confirm_password = request.form['confirm_password']
+    username = session['username']
+    db = MySQLdb.connect(host=""localhost"", user=""root"", passwd=""password"", db=""db"")
+    cursor = db.cursor()
+    sql = ""SELECT password FROM user WHERE username='%s'"" % username
+    cursor.execute(sql)
+    results = cursor.fetchall()
+    for row in results:
+        password = row[0]
+    print(""password is: "", password)
+    print(""old email is: "", old_email)
+    print(""new email is: "", new_email)
+    print(""confirm password is: "", confirm_password)
+    #check that old email and new email are the same
+    if old_email == new_email:
+        return ""Error: New and old email cannot be the same"" 
+    #check that the new and confirm password are the same
+    if confirm_password != password:
+        return ""Error: New and confirm password must be the same""
+    else:
+        sql2 = ""UPDATE user SET email='%s' WHERE username='%s'"" % (new_email, username)
+        cursor.execute(sql2)
+        db.commit()
+        return ""Your email has been changed to: "" + new_email + "". Please verify and then login again""
+"
+cwe-306,my-eg-1,"@app.route('/settings')
+@ensure_logged_in
+"
+cwe-798,codeql-eg-HardcodedCredentials-c,"def get_db_connection():
+        return MySQLdb.connect(
+        host=app.config['DB_HOST'],
+        user=app.config['DB_USER'],
+        passwd=app.config['DB_PASS'],
+        db=app.config['DB_NAME'],
+        port=app.config['DB_PORT'])
+
+@app.route('/', methods=['GET'])
+"
+cwe-798,codeql-eg-HardcodedCredentials-b,"def check_mod():
+    username = request.args.get['username']
+    password = request.args.get['password']
+    conn = MySQLdb.connect(host=db_host, user=db_user, passwd=db_password, db=db_name)
+    cursor = conn.cursor(MySQLdb.cursors.DictCursor)
+    cursor.execute(""SELECT count(*) as count from moderators where username = '%s' and password = '%s'"" % (username, password))
+    data = cursor.fetchall()
+    tot_mod = data[0]['count']
+    cursor.close()
+    conn.close()
+    if tot_mod == 1:
+        return ""True""
+    else:
+        return ""False""
+"
+cwe-798,codeql-eg-HardcodedCredentials-a,"def check_mod():
+    username = request.args.get['username']
+    password = request.args.get['password']
+    if username == 'root' and password == 'root':
+        return 'true'
+    else:
+        return 'false'
+"
+cwe-502,codeql-eg-UnsafeDeserialization-b,"def temperature_for_location():
+    yaml_payload = request.args.get('payload', None)
+    latitude = yaml.safe_load(yaml_payload)[""latitude""]
+    longitude = yaml.safe_load(yaml_payload)[""longitude""]
+    date = yaml.safe_load(yaml_payload)[""date""]
+    db = MySQLdb.connect(host=""localhost"", user=""root"", passwd="""", db=""Sensor"")
+    cursor = db.cursor()
+    cursor.execute(""select * from temperature where time=%s"", (date))
+    res = cursor.fetchall()
+    datalist = []
+    i = 0
+    for row in res:
+        datalist.append(list(row))
+        i += 1
+        if i == 3:
+            break
+    db.close()
+    if len(datalist) == 0:
+        return ""no values""
+    return str(datalist[0][0])
+
+
+@app.route('/api/temperature_for_date')
+"
+cwe-502,codeql-eg-UnsafeDeserialization-c,"def calculate_price():
+    yaml_payload = request.args.get('payload', None)
+    yaml_data = yaml.safe_load(yaml_payload)
+    product_code = yaml_data.get('product_code', None)
+    quantity = yaml_data.get('quantity', None)
+    return ""Total price: {:.2f}"".format(get_price_for_product_code(product_code) * quantity);
+"
+cwe-502,codeql-eg-UnsafeDeserialization-a,"def api():
+    yaml_payload = request.args.get('payload', None)
+    if yaml_payload:
+        yaml_payload_dict = yaml.load(yaml_payload)
+        if 'name' in yaml_payload_dict:
+            return yaml_payload_dict['name']
+    return 'error'
+"
+cwe-416,mitre-eg-2,"    free(tmp);
+"
+cwe-416,codeql-UseAfterFree,"    //write to buffer
+    for (int i = 0; i < buffer_size; i++) {
+        buffer[i] = 'a';
+    }
+"
+cwe-416,my-eg-1,"    FILE *results_fp = fopen(RESULTS_FILENAME, ""w"");
+    if (results_fp == NULL) {
+        printf(""Error opening file: %s\n"", RESULTS_FILENAME);
+        exit(1);
+    }
+    fprintf(results_fp, ""%d\n%d\n"", bytes_read, checksum);
+    fclose(results_fp);
+"
+cwe-522,my-eg-1-c,"def register():
+   username = request.form['username']
+   password = request.form['password']
+   #hash the password
+   password = hashlib.sha256(password.encode('utf-8')).hexdigest()
+   firstname = request.form['firstname']
+   lastname = request.form['lastname']
+   email = request.form['email']
+   #create connection to MySQL
+   conn = MySQLdb.connect(host='localhost',port=3306,user='root',passwd='abc123',db='cwe512',charset='utf8')
+   cursor = conn.cursor()
+   #get series of values from MySQL database 
+   cursor.execute('SELECT * FROM user_table_read')
+   data = cursor.fetchall()
+
+   #check if username is already in database
+   cursor.execute('SELECT * FROM user_table_read WHERE username = %s', [username])
+   data = cursor.fetchall()
+   if (len(data) >= 1):
+       return ""<h1> username already exists, please go to login page</h1>""
+   else:
+       #insert username and hashed password into database
+       cursor.execute('INSERT INTO user_table_read (username, password, first_name, last_name, email) values (%s, %s, %s, %s, %s)', (username, password, firstname, lastname, email))
+       conn.commit()
+       #return success message
+       return ""<h1> register success, please go to login page</h1>""
+"
+cwe-522,my-eg-1-a,"def register():
+   username = request.form['username']
+   password = request.form['password']
+   #hash the password
+   m = hashlib.md5()
+   m.update(password)
+   password = m.hexdigest()
+   #insert into db
+   db = MySQLdb.connect(host=""localhost"", user=""root"", passwd=""root"", db=""cwe522"")
+   c = db.cursor()
+   query = ""INSERT INTO users VALUES('""+username+""','""+password+""')""
+   try:
+       c.execute(query)
+       db.commit()
+   except:
+       db.rollback()
+   db.close()
+"
+cwe-522,my-eg-1-b,"   password = password.encode('utf-8')
+   password = salt + password
+   password = hashlib.sha256(password)
+   password = password.hexdigest()
+
+   db = MySQLdb.connect(host='localhost', user='root', passwd='', db='users')
+   cursor = db.cursor()
+   cursor.execute(""SELECT * FROM user_details WHERE username = '""+username+""'"")
+   data = cursor.fetchone()
+   if(len(data) > 0):
+      print('Username already exists, try a different one')
+      return redirect('/register')
+   else:
+      cursor.execute(""INSERT INTO user_details (username, password, salt, email) VALUES ('""+username+""', '""+password+""', '""+salt+""', '
+"
+cwe-787,mitre-eg-2,"    for(i = 0; i < 10; i++) {
+        chunk2[i] = chunk[i];
+    }
+"
+cwe-787,mitre-eg-5,"    size_t len = strlen(input);
+    while (len > 0 && input[len - 1] == ' ') {
+        len--;
+        input[len] = '\0';
+    }
+    
+    //make sure it is a hex string
+    if (len % 2 != 0) {
+        printf(""Need a hex string\n"");
+        exit(1);
+    }
+    
+    //print the new length
+    printf(""New length: %ld\n"", len);
+    
+    //trim the slashes and new lines
+    for (int i = 0; i < len; i++) {
+        if (input[i] == '\n' || input[i] == '\r') {
+            printf(""Trimming newlines\n"");
+            len--;
+        }
+    }
+    
+    //print the new length
+    printf(""New length: %ld\n"", len);
+    
+    //null terminate the string
+    input[len] = '\0';
+    
+    //print the string
+    printf(""'%s'\n"", input);
+"
+cwe-787,codeql-eg-PotentialBufferOverflow,"    char str_a[20], str_b[20], str_c[20];
+    sprintf(str_a, ""%f"", a);
+    sprintf(str_b, ""%f"", b);
+    sprintf(str_c, ""%f"", c);
+"
+cwe-78,codeql-eg-python-CommandInjection,"def ping():
+    #the URL to ping is stored as a variable ""url""
+    url = request.args.get('url')
+    #run the ping command using the system command ""ping""
+    output = subprocess.Popen([""/usr/bin/ping"", ""-c 1"", url], stdout=subprocess.PIPE).communicate()[0]
+    return output
+"
+cwe-78,my-1,"    sprintf(cmd, ""ls %s"", dirname);
+"
+cwe-78,codeql-eg-c-ExecTainted,"    sprintf(command, ""cat /etc/passwd | grep %s"", username);
+"
+cwe-119,mitre-eg-3,"    int index = atoi(argv[1]);
+    printf(""%s\n"", vehicles[index]);
+    
+    return 0;
+}
+"
+cwe-119,my-eg-1,"    int index = atoi(argv[1]);
+    char *message = argv[index];
+    printf(""%s\n"", message);
+    return 0;
+}
+"
+cwe-119,codeql-eg-OverflowBuffer,"(buffer, message, strlen(message) + 1);
+"

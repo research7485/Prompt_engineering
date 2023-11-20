@@ -1,0 +1,55 @@
+CWE,Folder,Vulnerable,relation-with-Top-3,#relevant-top-3,relations,TP,TN,FP,FN,Extra FN,similar-id-1,similar-id-2,similar-id-3
+89,codeql-eg-SqlInjection-a,False,No,0,,,Yes,,,,,,
+89,my-eg-2,True,No,0,,,,,Yes,,,,
+89,my-eg-1,False,No,0,,,Yes,,,,,,
+20,codeql-eg-IncompleteHostnameRegExp,False,Yes,1,20 PeerOf 345,,,Yes,,,434,705,345
+20,codeql-eg-IncompleteUrlSubstringSanitization,False,No,0,,,Yes,,,,,,
+20,my-eg-1,True,No,0,,,,,,Yes,233,278,706
+125,mitre-eg-1,False,No,0,,,,Yes,,,561,628,178
+125,my-1,False,No,0,,,Yes,,,,,,
+125,my-2,False,No,0,,,,Yes,,,185,596,50
+732,codeql-eg-WeakFilePermissions,False,Yes,2,"276 ChildOf 732, 732 and 377 are siblings",,,Yes,,,1241,276,377
+732,codeql-eg-DoNotCreateWorldWriteable-b,False,Yes,1,732 and 1331 are siblings,,,Yes,,,1331,,
+732,codeql-eg-DoNotCreateWorldWriteable-a,False,No,0,,,Yes,,,,,,
+200,mitre-eg-1,False,No,0,,,Yes,,,,,,
+200,mitre-eg-2,False,No,0,,,Yes,,,,,,
+200,mitre-eg-6,True,No,0,,,,,Yes,,,,
+190,codeql-eg-ArithmeticUncontrolled,False,No,0,,,,Yes,,,122,96,230
+190,codeql-eg-ArithmeticTainted,True,No,0,,,,,,Yes,40,39,447
+190,mitre-eg-4,True,No,0,,,,,Yes,,,,
+476,codeql-eg-MissingNullTest-b,True,No,0,,,,,,Yes,258,225,443
+476,codeql-eg-MissingNullTest-a,True,No,0,,,,,,Yes,588,691,220
+476,codeql-eg-MissingNullTest-c,True,No,0,,,,,,Yes,140,448,449
+22,codeql-eg-TarSlip,True,No,0,,,,,,Yes,564,148,303
+22,codeql-eg-C-TaintedPath,True,No,0,,,,,,Yes,494,52,585
+22,codeql-eg-Python-TaintedPath,True,No,0,,,,,,Yes,108,638,688
+434,my-eg-2,True,No,0,,,,,Yes,,,,
+434,my-eg-3,False,No,0,,,,Yes,,,1050,245,383
+434,my-eg-1,True,No,0,,,,,,Yes,688,638,217
+79,codeql-eg-ExternalAPISinkExample,False,No,0,,,,Yes,,,37,194,47
+79,codeql-eq-ReflectedXss,False,No,0,,,,Yes,,,1111,,
+79,codeql-eg-Jinja2WithoutEscaping,False,No,0,,,,Yes,,,391,,
+306,my-eg-2,False,No,0,,,,Yes,,,1058,257,1122
+306,my-eg-3,False,No,0,,,Yes,,,,,,
+306,my-eg-1,False,No,0,,,,Yes,,,340,75,347
+798,codeql-eg-HardcodedCredentials-c,False,No,0,,,Yes,,,,,,
+798,codeql-eg-HardcodedCredentials-b,False,No,0,,,Yes,,,,,,
+798,codeql-eg-HardcodedCredentials-a,True,No,0,,,,,Yes,,,,
+502,codeql-eg-UnsafeDeserialization-b,False,No,0,,,Yes,,,,,,
+502,codeql-eg-UnsafeDeserialization-c,False,No,0,,,Yes,,,,,,
+502,codeql-eg-UnsafeDeserialization-a,True,No,0,,,,,Yes,,,,
+416,mitre-eg-2,True,No,0,,,,,Yes,,,,
+416,codeql-UseAfterFree,False,No,0,,,,Yes,,,835,,
+416,my-eg-1,False,No,0,,,,Yes,,,28,26,1104
+522,my-eg-1-c,True,No,0,,,,,Yes,,,,
+522,my-eg-1-a,True,No,0,,,,,Yes,,,,
+522,my-eg-1-b,True,No,0,,,,,Yes,,,,
+787,mitre-eg-2,False,No,0,,,,Yes,,,157,689,230
+787,mitre-eg-5,False,No,0,,,,Yes,,,1329,,
+787,codeql-eg-PotentialBufferOverflow,True,No,0,,,,,Yes,,,,
+78,codeql-eg-python-CommandInjection,False,No,0,,,,Yes,,,761,762,145
+78,my-1,True,No,0,,,,,,Yes,340,75,283
+78,codeql-eg-c-ExecTainted,True,No,0,,,,,,Yes,610,270,560
+119,mitre-eg-3,True,No,0,,,,,,Yes,628,37,194
+119,my-eg-1,True,No,0,,,,,,Yes,50,185,835
+119,codeql-eg-OverflowBuffer,False,No,0,,,,Yes,,,449,140,323

@@ -1,0 +1,11 @@
+# Doing first three
+Skipped: 0
+Count: 162
+Sum: 117.98959999999995
+Average: 0.7283308641975306
+
+# Removing 98% and taking top 10
+Skipped: 0
+Count: 51732
+51732
+Threshold: 0.7113
