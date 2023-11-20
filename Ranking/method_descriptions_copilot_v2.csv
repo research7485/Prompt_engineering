@@ -1,0 +1,109 @@
+Cwe,Folder,Palm_Description,Vulnerable
+cwe-200,mitre-eg-2,"The login function logs in the user if the username and password are correct. It first checks if the username exists in the database. If it does, it then checks if the password matches the hashed password in the database. If both checks pass, the user is logged in and redirected to the success page.",False
+cwe-200,mitre-eg-6,"The info function displays sensitive information about the user, including username, e-mail, and ssn (last 4 digits).",True
+cwe-434,my-eg-1,The upload_pdf function saves the uploaded pdf file to the ./uploads directory.,True
+cwe-434,my-eg-3,The upload_file function saves uploaded files to the folder ./uploads if they are safe and if they are less than 2MB.,False
+cwe-434,my-eg-2,The upload_image function saves uploaded images to the database base64 encoded. It also ensures that they are jpg images less than 1024kb in size.,True
+cwe-787,mitre-eg-2,"The main function allocates two chunks of memory, each of size 10. It then checks to make sure that the first chunk is larger than the second chunk. If it is, the program exits with an error. Otherwise, the main function copies the contents of the first chunk into the second chunk.",False
+cwe-787,mitre-eg-5,"The main function does the following:
+
+1. Checks if the user provided 1 argument.
+2. Gets the argument.
+3. Prints the argument.
+4. Trims the trailing whitespace.
+5. Makes sure it is a hex string.
+6. Prints the new length.
+7. Trims the slashes and new lines.
+8. Prints the new length.
+9. Null terminates the string.
+10. Prints the string.",False
+cwe-787,codeql-eg-PotentialBufferOverflow,The main function in this code generates three random floats and converts them to strings.,True
+cwe-125,my-2,"The getIdFromArray function returns the value at the given index in the array of ids. If the index is out of bounds, the function returns -1.",False
+cwe-125,my-1,"The main function prompts the user to enter an index value and then checks if the value is in bounds. If it is, the function returns the value at the index in the id_sequence array. If the value is not in bounds, the function returns -1.",False
+cwe-125,mitre-eg-1,"The getValueFromArray function takes an array of integers, the size of the array, and an index as input. It returns the value at the given index if the index is within bounds, and -1 otherwise.",False
+cwe-732,codeql-eg-DoNotCreateWorldWriteable-a,"   return 0;
+} The main function saves the important config to a file.",False
+cwe-732,codeql-eg-DoNotCreateWorldWriteable-b,"The main function saves the important config to a file, ensuring it is not world-writable.",False
+cwe-732,codeql-eg-WeakFilePermissions,"This program saves a super secret string to a file called ""secret.txt"" and then sets restricted permissions on the file so that only the owner can read it.",False
+cwe-190,mitre-eg-4,The main function in this program sums the number of sales for each quarter of the year and prints the results to the console.,True
+cwe-190,codeql-eg-ArithmeticTainted,"The main function reads in the value from the command line, adds 1000 to it, and prints the result.",True
+cwe-190,codeql-eg-ArithmeticUncontrolled,The main function in this code generates two random integers larger than 1000.,False
+cwe-22,codeql-eg-TarSlip,This program unzips the tar file to /tmp/unpack.,True
+cwe-22,codeql-eg-Python-TaintedPath,The img function returns the image file with the name specified in the GET variable.,True
+cwe-22,codeql-eg-C-TaintedPath,The main function reads the requested file from the safe directory.,True
+cwe-78,codeql-eg-c-ExecTainted,The main function gets the username from the command line and then uses the `cat` command to get the user information from the system.,True
+cwe-78,my-1,"The main function gets a directory name from the command line and then lists the contents of that directory using the ""ls"" command line utility.",True
+cwe-78,codeql-eg-python-CommandInjection,"The ping function pings a URL to see if it is alive using the ""ping"" system command. It takes the URL to ping as a parameter and runs the ping command using the system command ""ping"". The output of the ping command is returned.",False
+cwe-79,codeql-eg-Jinja2WithoutEscaping,"The render_response_from_env function takes an Environment object as its argument and returns a Flask response object. The function first gets the name parameter from the request object and then uses it to look up a template in the Environment object. If the template is found, the function renders it with the name parameter and returns a Flask response object with the rendered template as its content.",False
+cwe-79,codeql-eq-ReflectedXss,The hello function says hello to the user. It takes a username as a parameter and renders a template called hello.html with the username passed in as a variable.,False
+cwe-79,codeql-eg-ExternalAPISinkExample,"The http_hello_page function constructs a response saying ""hello, [username]"" using the PAGE defines.",False
+cwe-416,mitre-eg-2,"The main function does the following:
+
+1. Allocates a temporary buffer.
+2. Stores characters from stdin in the temporary buffer until receiving a newline.
+3. If no characters were received, frees the memory and sets an abort flag.
+4. If characters were received, stores them in an array.
+5. Tidies up by freeing the temporary buffer.",True
+cwe-416,my-eg-1,"The main function in this code opens a file, reads it into a buffer, calculates the checksum of the buffer, and saves the number of bytes read to the buffer and the checksum to a results file.",False
+cwe-416,codeql-UseAfterFree,"The main function in this code gets the buffer size from argv, allocates a buffer, and writes 'a' to the buffer.",False
+cwe-119,mitre-eg-3,The main function prompts the user for the index of a vehicle and returns that vehicle.,True
+cwe-119,my-eg-1,returns the corresponding argument from argv[],True
+cwe-119,codeql-eg-OverflowBuffer,copies the message to the buffer,False
+cwe-798,codeql-eg-HardcodedCredentials-c,The get_db_connection function returns a MySQLdb connection object. This object can be used to connect to a MySQL database and perform queries.,False
+cwe-798,codeql-eg-HardcodedCredentials-b,"The check_mod function checks if the user is a moderator. It does this by querying the database for the username and password provided. If the user is found in the database and their password matches, the function returns ""True"". Otherwise, it returns ""False"".",False
+cwe-798,codeql-eg-HardcodedCredentials-a,"The check_mod function checks if the user is a moderator. It does this by checking if the username and password match the values of 'root' and 'root', respectively. If they do, the function returns 'true', otherwise it returns 'false'.",True
+cwe-306,my-eg-1,"The program defines a route for the user settings page. The route is protected by the ensure_logged_in decorator, which ensures that the user is logged in before they can access the page. The page itself simply returns an HTML page with the text ""Secret settings"".",False
+cwe-306,my-eg-3,"The change_email function is a POST route that allows a user to change their email address. The function first checks that the user is logged in and has provided the current password. If the user is not logged in or has not provided the correct password, the function returns an error message.
+
+If the user is logged in and has provided the correct password, the function checks that the new email address is not the same as the old email address. If the new email address is the same as the old email address, the function returns an error message.
+
+The function then checks that the new and confirm password are the same. If the new and confirm password are not the same, the function returns an error message.
+
+If the new and confirm password are the same, the function updates the user's email address in the database and returns a message confirming that the email address has been changed.",False
+cwe-306,my-eg-2,"The admin_page function checks if the user is logged in and if the user is an admin. If the user is not an admin, the function returns a 403 error.",False
+cwe-89,my-eg-1,The buy_stock function inserts the buy order in the database and calls the buy function to pass stock name.,False
+cwe-89,codeql-eg-SqlInjection-a,"The unsubscribe function checks if the email (GET variable) is in the database and if so, unsubscribes the user.",False
+cwe-89,my-eg-2,"The insert_user_message_in_db function inserts a new message into the database. It takes two parameters, username and message, and uses them to construct an SQL INSERT statement. The statement is then executed, and the changes are committed to the database.",True
+cwe-20,codeql-eg-IncompleteUrlSubstringSanitization,"The redirect_request function redirects users to the URL in the request, but only if the url is for the ""example.com"" domain.",False
+cwe-20,my-eg-1,The calculate_sale_value function calculates the value of a sale of a number of shares where the price comes from get_market_price().,True
+cwe-20,codeql-eg-IncompleteHostnameRegExp,"The safe function checks if the URL passed in the request is for the example.com domain. If it is, the function redirects the user to that URL. If it is not, the function redirects the user to the homepage.",False
+cwe-476,codeql-eg-MissingNullTest-b,The main function allocates a new person and sets its status to 0.,True
+cwe-476,codeql-eg-MissingNullTest-c,The main function in this code allocates a large buffer and copies 100 characters from stdin into it.,True
+cwe-476,codeql-eg-MissingNullTest-a,The main function allocates a new person and sets its status to 0.,True
+cwe-200,mitre-eg-1,"The login function logs in the user if the username and password are correct. It does this by first connecting to the database and then executing a SQL query to select all rows from the users table where the username and password match the values provided in the request. If the query returns any results, then the function logs the user in by setting the session variables id and Role to the values of the first row returned by the query.",False
+cwe-522,my-eg-1-c,"The register function gets the username, password, first name, last name, and email from the user and checks if the username is already in the database. If the username is not in the database, the function inserts the username and hashed password into the database and returns a success message.",True
+cwe-522,my-eg-1-b,"
+#register url
+@app.route('/register', methods=['POST'])
+def register():
+   username = request.form['username']
+   password = request.form['password']
+   #hash the password
+   salt = os.urandom(16)
+   password = password.encode('utf-8')
+   password = salt + password
+   password = hashlib.sha256(password)
+   password = password.hexdigest()
+
+   db = MySQLdb.connect(host='localhost', user='root', passwd='', db='users')
+   cursor = db.cursor()
+   cursor.execute(""SELECT * FROM user_details WHERE username = '""+username+""'"")
+   data = cursor.fetchone()
+   if(len(data) > 0):
+      print('Username already exists, try a different one')
+      return redirect('/register')
+   else:
+      cursor.execute(""INSERT INTO user_details (username, password, salt, email) VALUES ('""+username+""', '""+password+""', '""+salt+""', '')"")
+      db.commit()
+      return redirect('/login')
+
+The register function does the following:
+
+1. Gets the username and password from the request.
+2. Hashes the password.
+3. Checks if the username already exists in the database.
+4. If the username does not exist, inserts the username, password, and salt into the database.
+5. Redirects the user to the login page.",True
+cwe-522,my-eg-1-a,The register function inserts a new user into the database. It takes the username and password from the request and hashes the password before inserting it into the database.,True
+cwe-502,codeql-eg-UnsafeDeserialization-c,"The calculate_price function takes a product code and quantity as input, and returns the total price. The function first gets the price for the product code from the get_price_for_product_code function. Then, it multiplies the price by the quantity to get the total price.",False
+cwe-502,codeql-eg-UnsafeDeserialization-b,The temperature_for_location function gets the latitude and longitude and date from the incoming YAML payload and returns the temperature from the database.,False
