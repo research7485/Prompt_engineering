@@ -1,0 +1,94 @@
+Cwe,Folder,Palm_Description
+cwe-200,mitre-eg-2,"The `login()` function logs in the user if the username and password are correct. It does this by connecting to a MySQL database, querying the `users` table for the username and password, and returning the user's data if it is found. If the username or password is incorrect, the function returns an error message."
+cwe-200,mitre-eg-6,"The function `info()` displays sensitive information about the user, including their username, email, and the last four digits of their Social Security number. It does this by first retrieving the user's username, email, and Social Security number from the session. It then extracts the last four digits of the Social Security number and uses them to create a new string. Finally, it returns the new string to the user."
+cwe-200,mitre-eg-1,"The `login()` function logs in the user if the username and password are correct. It does this by first connecting to a MySQL database and then executing a query to select the user's data from the `users` table. If the user's data is found, the function redirects the user to the `/home` page. Otherwise, the function returns a message stating that the username or password is incorrect."
+cwe-434,my-eg-1,"The function `upload_pdf()` saves the uploaded pdf file to the `./uploads` directory. It does this by first getting the file object from the `request.files` dictionary, and then saving it to the specified directory. The function returns a message indicating that the file was uploaded successfully."
+cwe-434,my-eg-3,"The `upload_file()` function saves uploaded files to the folder `./uploads` if they are safe and if they are less than 2MB. The function first checks the file size and returns an error message if the file is too large. The function then checks the file type and returns an error message if the file is not a safe type. If the file is safe and is not too large, the function saves the file to the `./uploads` folder and returns a success message."
+cwe-787,mitre-eg-2,"The function `main` is the entry point of the program. It is responsible for initializing the program, processing user input, and displaying output. In this case, the function allocates two chunks of memory, sets their sizes, and then copies the contents of the first chunk to the second chunk."
+cwe-787,codeql-eg-PotentialBufferOverflow,"The `main()` function is the entry point of the program. It is responsible for initializing the program, processing user input, and displaying output. In this case, the `main()` function generates three random floats, converts them to strings, and prints them to the console."
+cwe-125,my-1,"The `main()` function is the entry point of a C program. It is where the program starts executing. The `main()` function takes two arguments: `argc` and `argv`. `argc` is the number of command-line arguments, and `argv` is an array of pointers to the command-line arguments.
+
+The `main()` function typically does the following:
+
+* Declares and initializes variables.
+* Reads input from the user.
+* Performs calculations.
+* Writes output to the screen.
+* Returns a value to the operating system.
+
+In the code you provided, the `main()` function declares an array of integers called `id_sequence`. The array has three elements, which are initialized to the values 1, 5, and 7. The function then prompts the user for an index value and stores it in the variable `i`. The function then checks to see if `i` is in the range of 0 to 2, which is the size of the `id_sequence` array. If `i` is in range, the function returns the value at the specified index in the array. Otherwise, the function returns 0."
+cwe-190,mitre-eg-4,"The function main is the entry point of the program. It is responsible for initializing the program, calling the functions that perform the desired tasks, and cleaning up after the program has finished running. In this case, the function main calls the function getMonthlySales to get the number of sales for each month in the first quarter, and then adds them together to get the total sales for the first quarter."
+cwe-190,codeql-eg-ArithmeticTainted,"The function main is the entry point of the program. It is responsible for reading in the value from the command line, calculating the correct value with the offset of 1000 added, and printing the result to the console."
+cwe-22,codeql-eg-Python-TaintedPath,"The `img()` function is a Flask route that returns an image from the `images` folder. The function first checks if the `file_name` parameter contains the `../` pattern. If it does, the function returns the string ""Bad Image name"". Otherwise, the function checks if the `file_path` exists. If it does, the function redirects the user to the file path. Otherwise, the function returns the string ""Image not found!""."
+cwe-22,codeql-eg-C-TaintedPath,"The `main()` function is the entry point of the program. It is responsible for initializing the program, reading the requested file from the safe directory, and printing the file data.
+
+The `main()` function first checks if the requested file name contains the sequence `..`. If it does, the function prints an error message and exits. Otherwise, the function concatenates the restricted safe directory and the requested file name to create a new file name. The function then opens the file and reads its data. Finally, the function prints the data to the console."
+cwe-78,codeql-eg-c-ExecTainted,"The `main` function is the entry point of the program. It is responsible for initializing the program and then calling the appropriate functions to perform the desired tasks. In this case, the `main` function gets the username from the command line and then uses the `system` function to run the `ls - l` command on the user's home directory."
+cwe-78,my-1,"The `main()` function is the entry point of the program. It is responsible for initializing the program, reading the command line arguments, and calling the appropriate functions to perform the desired tasks. In this case, the `main()` function reads the directory name from the command line and uses the `ls` command line utility to list the contents of that directory."
+cwe-78,codeql-eg-python-CommandInjection,"The `ping` function pings a URL to see if it is alive using the ""ping"" system command. It first checks if the URL contains a semicolon, in which case it returns ""Bad Url provided"". If the URL does not contain a semicolon, it runs the ping command using the system command ""ping"". The command is ""ping -c 5 "" + url, where ""-c 5"" means to send 5 pings to the URL. The result of the ping command is captured and returned as a string."
+cwe-79,codeql-eq-ReflectedXss,"The `hello` function takes a username as a parameter and returns a string that says ""Hello, [username]"". The username is first escaped to prevent it from being interpreted as HTML code."
+cwe-79,codeql-eg-ExternalAPISinkExample,"The function `http_hello_page` takes a URL, a method, a request file, and a response file as input. It then reads the username from the request file, constructs a response saying ""hello, [username]"" with the PAGE defines, and writes the response to the response file."
+cwe-416,mitre-eg-2,"The function main is the entry point of the program. It is responsible for initializing the program, reading input from the user, and performing the desired operations. In this case, the function main reads a line of input from the user and stores it in an array. The function then prints the contents of the array to the screen."
+cwe-416,my-eg-1,"The function `main()` is the entry point of the program. It is responsible for opening the file, reading the file into a buffer, calculating the checksum of the buffer, and saving the number of bytes read to the buffer and the checksum to the results file."
+cwe-119,mitre-eg-3,"The function main() is the entry point of the program. It is where the program starts executing. The function takes two arguments: argc and argv. argc is the number of command-line arguments, and argv is an array of pointers to the command-line arguments.
+
+The function main() typically does the following:
+
+* Declares and initializes variables.
+* Reads input from the user.
+* Performs calculations.
+* Writes output to the screen.
+* Returns a value to the operating system.
+
+In the code you provided, the function main() does the following:
+
+* Declares an array of strings called vehicles.
+* Prompts the user for the index of a vehicle.
+* Reads the index from the user.
+* Checks if the index is valid.
+* If the index is valid, prints the corresponding vehicle name.
+* Otherwise, prints an error message."
+cwe-119,codeql-eg-OverflowBuffer,"The function main is the entry point of the program. It is responsible for initializing the program, processing the user input, and displaying the output. In this case, the function main initializes the variable message to the string ""Hello"" and the variable buffer to an array of 256 characters. It then checks if the buffer is large enough to hold the message, and if so, it copies the message to the buffer. Finally, the function main prints the message to the screen."
+cwe-798,codeql-eg-HardcodedCredentials-c,"The function `get_db_connection()` connects to a MySQL database and returns a connection object. The function takes four parameters: the host name of the database server, the username, the password, and the name of the database. The function uses the MySQLdb library to connect to the database. The connection object can then be used to execute SQL queries and retrieve data from the database."
+cwe-798,codeql-eg-HardcodedCredentials-a,"The function `check_mod()` checks if the user is a moderator. It does this by checking if the username and password match the values 'mod' and 'modpass', respectively. If they do, the function returns True, otherwise it returns False."
+cwe-89,my-eg-1,"The `buy_stock()` function takes in the stock name, stock quantity, and username from the user and inserts a buy order into the database. The function first connects to the database using the MySQLdb library. Then, it creates a cursor and executes an SQL statement to insert the buy order into the database. Finally, the function commits the changes to the database and closes the cursor and connection."
+cwe-20,my-eg-1,"The function `calculate_sale_value()` calculates the value of a sale of a number of shares where the price comes from `get_market_price()`. It takes two inputs: the symbol of the stock and the number of shares. It returns the value of the sale, which is always positive or 0. If an error occurs, it returns 0.
+
+The function first calls `get_market_price()` to get the market price of the stock. If `get_market_price()` returns -1, then an error has occurred and the function returns 0. Otherwise, the function multiplies the market price by the number of shares to get the value of the sale. The function then returns the value of the sale."
+cwe-476,codeql-eg-MissingNullTest-b,"The function main is the entry point of the program. It is responsible for initializing the program, calling the functions that perform the desired tasks, and cleaning up after the program has finished running.
+
+In the code you provided, the function main allocates a new person structure, sets the status to 0, and then frees the structure."
+cwe-476,codeql-eg-MissingNullTest-a,"The function main is the entry point of the program. It is responsible for initializing the program, processing user input, and displaying output. In this case, the function allocates a new person and sets its status to 0. It then frees the person when it is no longer needed."
+cwe-434,my-eg-2,"The upload_image() function in a Flask application handles image uploads. It checks if the uploaded file is a JPG image and if its size is less than 1024KB. If valid, the function base64 encodes the image and saves it along with its name to a MySQL database table named images. The function returns a success message if the upload is successful, or appropriate error messages for invalid images or large file sizes."
+cwe-125,my-2,"The getidfromarray function takes an integer index as input and returns the value at that index from the global integer array ids. The function first checks if the index is within the valid bounds of the array (0 to IDS_ARRAY_SIZE - 1). If the index is out of bounds (less than 0 or greater than or equal to IDS_ARRAY_SIZE), the function returns -1 to indicate an error. Otherwise, it returns the value stored in the ids array at the specified index."
+cwe-125,mitre-eg-1,"The getValueFromArray function takes an array of integers, the size of the array, and an index as input. It returns the value at the given index if the index is within bounds, and -1 if the index is out of bounds."
+cwe-190,codeql-eg-ArithmeticUncontrolled,"The main function in this program generates a random integer larger than 1000. It does this by first initializing the random number generator with the seed 0. It then generates a random integer between 1001 and INT_MAX (the maximum value of an integer). Finally, it prints the random integer to standard output."
+cwe-22,codeql-eg-TarSlip,The program unzips the tar file to /tmp/unpack.
+cwe-416,codeql-UseAfterFree,"The main function in C is responsible for initializing the program and calling the functions that perform the program's tasks. In this case, the main function first gets the buffer size from the command-line arguments, then allocates a buffer of that size. The main function then does something with the buffer, such as reading data from it or writing data to it. Finally, the main function frees the memory that was allocated for the buffer."
+cwe-119,my-eg-1,The function returns the argument from argv[] that corresponds to the index in argv[1].
+cwe-798,codeql-eg-HardcodedCredentials-b,"The checkmod function checks if a user is a moderator. It does this by querying the database for the username and password provided. If the user is found in the database and their password matches, the function returns true. Otherwise, it returns false."
+cwe-306,my-eg-1,The settings function is a route that is only accessible to users who are logged in. It displays a page with secret settings.
+cwe-306,my-eg-2,"The admin_page function checks if the user is logged in and if they are an admin. If they are, it returns a secret page. Otherwise, it returns a permission denied message."
+cwe-306,my-eg-3,"The change_email function is a POST function that allows a user to change their email address. The function first checks to make sure that the user is logged in and has provided the current password. If the user is not logged in or has not provided the correct password, the function returns an error message.
+
+If the user is logged in and has provided the correct password, the function checks to make sure that the new email address is different from the old email address. If the new email address is the same as the old email address, the function returns an error message.
+
+If the new email address is different from the old email address, the function checks to make sure that the new email address is not already in use. If the new email address is already in use, the function returns an error message.
+
+If the new email address is not already in use, the function updates the user's email address in the database and returns a success message."
+cwe-787,mitre-eg-5,"The main function does the following:
+
+1. Checks if the user provided 1 argument.
+2. Gets the argument.
+3. Prints the argument.
+4. Trims the trailing whitespace from the argument.
+5. Prints the argument again."
+cwe-732,codeql-eg-DoNotCreateWorldWriteable-a,"The main function saves the important config to a file and changes the permissions of the config file to read and write for the owner, and read-only for everyone else."
+cwe-732,codeql-eg-DoNotCreateWorldWriteable-b,"The main function saves the important config to a file, ensuring it is not world-writable. It then changes the permissions of the config file to read for everyone."
+cwe-732,codeql-eg-WeakFilePermissions,The program saves the super secret info to a file called secret.txt and sets restricted permissions on the file so that only the owner can read it.
+cwe-89,my-eg-2,"
+ The insert_user_message_in_db function inserts a user's message into the database. It takes two parameters: the username of the user and the message they want to post. The function first gets a connection to the database using the get_db_connection function. It then creates a cursor and executes an INSERT INTO statement to insert the user's message into the database. The function finally commits the changes to the database and closes the connection."
+cwe-89,codeql-eg-SqlInjection-a,"The unsubscribe function checks if the email (GET variable) is in the database and if so, unsubscribes the user. It does this by making a query to check if the user is already on the subscribe list. If the user is found, a query is made to remove the row with the given email. The connection is then committed and closed."
+cwe-20,codeql-eg-IncompleteHostnameRegExp,"The unsubscribe function checks if the target URL is for the example.com domain. If it is, the function redirects the user to the target URL. If it is not, the function redirects the user to the home page."
+cwe-20,codeql-eg-IncompleteUrlSubstringSanitization,"The redirect_func function takes a URL as a parameter and redirects the user to that URL if the URL is for the ""example.com"" domain. If the URL is not for the ""example.com"" domain, the function returns a message indicating that the URL is invalid."
+cwe-476,codeql-eg-MissingNullTest-c,The main function allocates a buffer of size 1024 bytes and copies the first 100 characters from standard input into the buffer.
