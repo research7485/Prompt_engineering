@@ -1,0 +1,14 @@
+20,codeql-eg-IncompleteHostnameRegExp,FALSE,No
+125,mitre-eg-1,FALSE,No
+125,my-2,FALSE,No
+732,codeql-eg-WeakFilePermissions,FALSE,Yes
+190,codeql-eg-ArithmeticUncontrolled,FALSE,No
+434,my-eg-3,FALSE,No
+79,codeql-eg-ExternalAPISinkExample,FALSE,Yes
+79,codeql-eq-ReflectedXss,FALSE,No
+79,codeql-eg-Jinja2WithoutEscaping,FALSE,No
+306,my-eg-2,FALSE,Yes
+306,my-eg-1,FALSE,No
+416,codeql-UseAfterFree,FALSE,No
+416,my-eg-1,FALSE,No
+119,codeql-eg-OverflowBuffer,FALSE,No
